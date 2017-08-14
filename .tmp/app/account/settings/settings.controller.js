@@ -8,11 +8,12 @@ var SettingsController = function () {
   function SettingsController(Auth) {
     _classCallCheck(this, SettingsController);
 
-    this.errors = {};
     this.submitted = false;
 
     this.Auth = Auth;
   }
+  // errors = {};
+
 
   _createClass(SettingsController, [{
     key: 'changePassword',
@@ -26,6 +27,7 @@ var SettingsController = function () {
           _this.message = 'Password successfully changed.';
         }).catch(function () {
           form.password.$setValidity('mongoose', false);
+          _this.errors = {};
           _this.errors.other = 'Incorrect password';
           _this.message = '';
         });

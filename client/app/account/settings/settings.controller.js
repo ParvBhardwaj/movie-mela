@@ -1,11 +1,13 @@
 'use strict';
 
 class SettingsController {
-  errors = {};
-  submitted = false;
+  // errors = {};
+  // submitted = false;
 
   constructor(Auth) {
     this.Auth = Auth;
+    this.errors = {};
+    this.submitted = false;
   }
 
   changePassword(form) {
@@ -18,6 +20,7 @@ class SettingsController {
         })
         .catch(() => {
           form.password.$setValidity('mongoose', false);
+          this.errors = {};
           this.errors.other = 'Incorrect password';
           this.message = '';
         });
