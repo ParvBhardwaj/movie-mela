@@ -1,1 +1,54 @@
-<div>This is the theater view.</div>
+<div class="container well">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="form-group">
+                <input type="text" placeholder="Cine" class="form-control" ng-model="theaterCtrl.theaterData.Cine" />
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="form-group">
+                <input type="text" placeholder="City" class="form-control" ng-model="theaterCtrl.theaterData.City" />
+            </div>
+        </div>
+        <div class="col-md-8">
+            <button class="btn btn-success" ng-click="theaterCtrl.AddTheater()">Save</button>
+            <button class="btn btn-success" ng-click="theaterCtrl.updateTheater(theaterCtrl.theaterData)">Update</button>
+        </div>
+        <div class="col-md-8">
+            <!--{{theaterCtrl.theaterData}}-->
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <!--<pre> {{theaterCtrl.alltheaterData}}</pre>-->
+            <table class="table">
+                <tr>
+                    <td>Cine</td>
+                    <td>City</td>
+                </tr>
+
+                <tr ng-repeat="t in theaterCtrl.alltheaterData">
+                    <!--<td> {{x}}</td>-->
+                    <td>{{t.Cine}}</td>
+                    <td>{{t.City}}</td>
+                    <td>
+                        <a class="btn btn-success" ng-click="theaterCtrl.editThing(t)">Edit
+                            <i class="fa fa-edit"></i>
+                        </a>
+                    </td>
+                    <td>
+                        <button type="button" class="close" ng-click="theaterCtrl.deleteThing(t)">&times;</button>
+                    </td>
+
+                </tr>
+                <!--<tr ng-repeat="x in theaterCtrl.alltheaterData">
+                <!--<td>{{x}}</td>-->
+
+                <!--</tr>-->
+            </table>
+        </div>
+
+    </div>
+</div>

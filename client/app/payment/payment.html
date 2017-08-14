@@ -1,1 +1,93 @@
-<div>This is the payment view.</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div>
+                <img src="img/cardpayment.png" alt="cardpay" class='img-center' width="100%" />
+                <div class="table">
+                    <span><div class="form-group">
+                        <tr>
+                            <td><b> Card Type</b></td>
+                            <select ng-model="paymentCtrl.payData.cardType">
+                            <option></option>
+                            <option>Debit Card </option>
+                            <option>Maestro Card </option>
+                            <option>Credit Card </option>
+                            <option>Master Card </option>
+                            <option>Visa</option>
+                        </select>
+                        </tr>
+                    </div></span>
+                    <td><b> Name on Card</b></td>
+                    <input type="text" class="form-control" ng-model="paymentCtrl.payData.name" />
+
+                    <div class="form- group">
+                        <td><b> Card number</b></td>
+                        <td> <input type="text" maxlength="15" class="form-control" ng-model="paymentCtrl.payData.cardnum" />
+                        </td>
+
+                        <td><b> CVV</b></td>
+                        <td> <input type="text" maxlength="3" class="form-control" ng-model="paymentCtrl.payData.cvv" />
+
+                        </td>
+
+                    </div>
+                    <!--<input type="text" class="form-control" ng-model="paymentCtrl.paymentData.City" />-->
+                    <td><b> Expiry date</b></td>
+                    <input type="month" class="form-control" <button class="btn btn-success" ng-model="paymentCtrl.payData.exdate"></button>
+                    </table>
+
+
+
+
+                    <div class="col-md-8">
+                        <button class="btn btn-primary" ng-click="paymentCtrl.payNow()">Pay Now</button>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+        <div class="col-md-6">
+            <p>
+                <!--{{paymentCtrl.payData}}-->
+                <img src="img/pop4.jpg" alt="cardpay" class='img-center' />
+                <img src="img/pop3.jpg" alt="cardpay" class='img-center' />
+            </p>
+            <table class="table" class="center-block label label-success">
+                <tr>
+                    <td colspan="2" class="center-block label label-info">
+                        <h3><b>Order Summary</b></h3>
+                    </td>
+                </tr>
+                <tr>
+                    <td><b>Movie Name</b></td>
+                    <td>{{paymentCtrl.bookdt.movie}}</td>
+                </tr>
+                <tr>
+                    <td><b>Theatre Name</b></td>
+                    <td>{{paymentCtrl.bookdt.cine}}</td>
+                </tr>
+                <tr>
+                    <td><b>Selected Seats</b></td>
+                    <td> {{paymentCtrl.bookdt.selectedSeats.join(', ')}}</td>
+                </tr>
+                <tr>
+                    <td><b>Show Timings</b></td>
+                    <td>{{paymentCtrl.bookdt.time}} </td>
+                </tr>
+                <tr>
+                    <td><b>Schedule Date</b> </td>
+                    <td>{{paymentCtrl.bookdt.date}}
+                    </td>
+                </tr>
+                <tr>
+                    <td><b>Total Price</b></td>
+                    <td>{{paymentCtrl.bookdt.total}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+</div>

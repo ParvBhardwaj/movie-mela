@@ -5,15 +5,16 @@ var _createClass = function () { function defineProperties(target, props) { for 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var SettingsController = function () {
+  // errors = {};
+  // submitted = false;
+
   function SettingsController(Auth) {
     _classCallCheck(this, SettingsController);
 
-    this.submitted = false;
-
     this.Auth = Auth;
+    this.errors = {};
+    this.submitted = false;
   }
-  // errors = {};
-
 
   _createClass(SettingsController, [{
     key: 'changePassword',

@@ -1,1 +1,88 @@
-<div>This is the movie view.</div>
+<div class="container wells">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <input type="text" placeholder="Name" class="form-control" ng-model="movieCtrl.Name" />
+                <input type="text" placeholder="Year" class="form-control" ng-model="movieCtrl.Year" />
+
+                <button class="btn btn-success" ng-click="movieCtrl.getOmdbMovie()">Search</button>
+                <button class="btn btn-success" ng-click="movieCtrl.AddMovies()">Add</button>
+            </div>
+        </div>
+        <!--<div class="body>" <div class="col-md-6">
+            <table class="table" style="color:red;">
+                <tr>
+                    <th>Title</th>
+                    <td>{{movieCtrl.movieData.Title}}</td>
+                </tr>
+                <tr>
+                    <th>Year</th>
+                    <td>{{movieCtrl.movieData.Year}}</td>
+                </tr>
+                <tr>
+                    <th>Director</th>
+                    <td>{{movieCtrl.movieData.Director}}</td>
+                </tr>
+                <tr>
+                    <th>Actors</th>
+                    <td>{{movieCtrl.movieData.Actors}}</td>
+                </tr>
+                <tr>
+                    <th>Genre</th>
+                    <td>{{movieCtrl.movieData.Genre}}</td>
+                </tr>
+                <tr>
+                    <th>IMDBRating</th>
+                    <td>{{movieCtrl.movieData.imdbRating}}</td>
+                </tr>
+            </table>
+
+            <div>-->
+
+        <table class="table">
+            <tr style="color:red;">
+                <th></th>
+                <th>Title</th>
+                <th>Year</th>
+                <th>Director</th>
+                <th>Genre</th>
+                <th>Actors</th>
+                <th>Language</th>
+                <th>Writer</th>
+                <th>Plot</th>
+                <th>Country</th>
+                <th>imdbRating</th>
+                <th>Runtime</th>
+            </tr>
+    <tr ng-repeat="p in movieCtrl.allMoviesData">
+                <td><img ng-src="{{p.Poster}}" height="70%" /></td>
+                <td>{{p.Title}}</td>
+                <td>{{p.Year}}</td>
+                <td>{{p.Director}}</td>
+                <td>{{p.Genre}}</td>
+                <td>{{p.Actors}}</td>
+                <td>{{p.Language}}</td>
+                <td>{{p.Writer}}</td>
+                <td>{{p.Plot}}</td>
+                <td>{{p.Country}}</td>
+                <td>{{p.imdbRating}}</td>
+                <td>{{p.Runtime}}</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+
+<!--
+        <div class="row">
+            <div class="col-md-3 col-sm-3 col-xs-4" ng-repeat="movie in  movieCtrl.allMoviesData">
+                <h3>
+                    <span class="center-block label label-default">{{movie.Title}}</span>
+                    <img class="center-block" width="200" height="300" ng-src="{{movie.Poster}}">
+                    <span class="center-block label label-danger">Ratings {{movie.imdbRating}}</span>
+                </h3>
+            </div>
+
+        </div>-->
+</div>
+</div>

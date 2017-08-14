@@ -28,6 +28,14 @@ var NavbarController = function () {
     value: function isActive(route) {
       return route === this.$location.path();
     }
+  }, {
+    key: 'SearchMovies',
+    value: function SearchMovies() {
+      alert("hora hai bhaiyaa ji");
+      this.$http.post('/api/navbar', angular.toJson(this.navbarData));
+    }
+    //end class
+
   }]);
 
   return NavbarController;

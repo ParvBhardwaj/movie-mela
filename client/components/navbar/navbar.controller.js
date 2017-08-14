@@ -20,7 +20,19 @@ class NavbarController {
   isActive(route) {
     return route === this.$location.path();
   }
+  SearchMovies() {
+    alert("hora hai bhaiyaa ji");
+    this.$http.post('/api/navbar',
+
+      angular.toJson(this.navbarData)
+    );
+
+
+  }
+  //end class
 }
+
+
 
 angular.module('movieMelaApp')
   .controller('NavbarController', NavbarController);

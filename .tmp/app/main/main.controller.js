@@ -11,10 +11,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
       this.$http = $http;
       this.socket = socket;
-      this.awesomeThings = [];
+      this.movieData = {};
+      this.allMoviesData = [];
 
       $scope.$on('$destroy', function () {
-        socket.unsyncUpdates('thing');
+        socket.unsyncUpdates('movie');
       });
     }
 
@@ -23,11 +24,28 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       value: function $onInit() {
         var _this = this;
 
-        this.$http.get('/api/things').then(function (response) {
-          _this.awesomeThings = response.data;
-          _this.socket.syncUpdates('thing', _this.awesomeThings);
+        this.$http.get('/api/movies').then(function (response) {
+          _this.allMoviesData = response.data;
+          _this.socket.syncUpdates('movie', _this.allMoviesData);
         });
       }
+
+      // $onInit() {
+
+      //   this.$http.get('/api/movies').then(response => {
+      //     this.allMovies = response.data;
+      //     // this.socket.syncUpdates('movies', this.allMovies);
+      //     console.log(this.allMovies[0]);
+      //     alert(JSON.stringify(this.allMovies[0]));
+      //   });
+
+      //   // $(document).ready(function () {
+      //   //   $('#myCarousel').carousel({
+      //   //     interval: 3000, cycle: true
+      //   //   });
+      //   // });
+      // }
+
     }, {
       key: 'addThing',
       value: function addThing() {
@@ -50,7 +68,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
   angular.module('movieMelaApp').component('main', {
     templateUrl: 'app/main/main.html',
-    controller: MainController
+    controller: MainController,
+    controllerAs: 'mainCtrl'
   });
 })();
 //# sourceMappingURL=main.controller.js.map

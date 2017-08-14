@@ -1,1 +1,52 @@
-<div>This is the runningmovie view.</div>
+<div class="container well">
+    <div class="row">
+        <div class="col-md-12">
+            <!-- -->
+
+        </div>
+        <div class="col-md-3">
+
+            <img ng-src="{{runningmovieCtrl.selectedmovie.Poster}}" height="80%" />
+
+            <!--<pre>{{runningmovieCtrl.selectedmovie.Poster}}</pre>-->
+        </div>
+        <div class="col-md-4" style="font:200">
+            <!--<pre>{{runningmovieCtrl.selectedmapping}}</pre>-->
+
+            <ul>
+                <h3><b>
+                    <li>{{runningmovieCtrl.selectedmovie.Title}}</li><br>
+                    <li>{{runningmovieCtrl.selectedmovie.Year}}</li>
+                    <!--<li>{{runningmovieCtrl.selectedmovie.Director}}</li>
+                <li>{{runningmovieCtrl.selectedmovie.Genre}}</li>-->
+                    <li>{{runningmovieCtrl.selectedmovie.Actors}}</li>
+                    <!-- <li>{{runningmovieCtrl.selectedmovie.Language}}</li>
+                <li>{{runningmovieCtrl.selectedmovie.Writer}}</li>
+                <li>{{runningmovieCtrl.selectedmovie.Plot}}</li>-->
+                    <li>{{runningmovieCtrl.selectedmovie.Country}}</li>
+                    <!--<li>{{runningmovieCtrl.selectedmovie.imdbRating}}</li>-->
+                    <li>{{runningmovieCtrl.selectedmovie.Runtime}}</li><br>
+                </h3></b>
+
+            </ul>
+        </div>
+        <div class="col-md-3">
+            <div class="row" ng-repeat="r in runningmovieCtrl.selectedmapping track by $index | filter: runningmovieCtrl.selectedmovie.Title">
+                <!--<pre>{{r}}</pre>-->
+                <!--<span class="btn btn-danger">{{r.date.join(', ')}}</span>
+                <span class="btn btn-info">{{r.time.join(', ')}}</span>-->
+                <h5><span class="btn btn-warning"> {{r.city}}</span>
+                    <span class="btn btn-warning"> Theater :{{r.cine}} </span></h5>
+                <div id="button">
+                    <span class="btn btn-danger" ng-click="runningmovieCtrl.storeDate(d)" ng-repeat="d in r.date track by $index "> {{d}} </span><br>
+                </div> <br>
+                <a href="/seatbooking">
+                    <div id="p" ng-show="runningmovieCtrl.$rootScope.run2book.date">
+                        <span class="btn btn-info " ng-click="runningmovieCtrl.storeData(r,t)" ng-repeat="t in r.time track by $index "> {{t}} </span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

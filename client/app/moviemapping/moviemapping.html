@@ -1,1 +1,105 @@
-<div>This is the moviemapping view.</div>
+<div class="container well well-sm">
+    <h1><b>Schedule Movie Show&Time</b></h1>
+    <div class="row">
+        <div class="col-md-6 ">
+            <table class=" table">
+                <tr>
+                    <td>
+                        <h4>Movie Name:</h4>
+                    </td>
+                    <td>
+                        <!--ng-options="m.OMDBID as m.name for m in $ctrl.allCinemas"-->
+                        <select ng-options="m.Title for m in moviemappingCtrl.allMoviesData" ng-model="moviemappingCtrl.mmrec.movieObj">
+                            <option value="">Select Movie </option>
+                            <!--<option ng-repeat="x in moviemappingCtrl.allMoviesData" ng-value="{{x}}">
+                                {{x.Title}}
+                            </option>    -->
+                            </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h4>City Name:</h4>
+                    </td>
+                    <td>
+                        <select ng-model="moviemappingCtrl.mmrec.city">
+                            <option value="">Select City</option>
+                            <option  ng-repeat="c in moviemappingCtrl.alltheaterData | unique:'City' "  value="{{c.City}}">
+                                {{c.City}}
+                            </option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h4> Cine Name:</h4>
+                    </td>
+                    <td>
+                        <select ng-model="moviemappingCtrl.mmrec.cine">
+                <option value="">Select Cine</option>
+                <option value = "{{y.Cine}}" ng-repeat="y in moviemappingCtrl.alltheaterData | filter: {'City' : moviemappingCtrl.mmrec.city}" >
+             {{y.Cine}}
+                </option>
+                                        </select>
+
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <h4>Show Timings:</td>
+                    <td>
+                        <select ng-model="moviemappingCtrl.mmrec.hr">
+                            <option value="00">00</option>
+                            <option value="12" >12</option>
+                            <option value="03" selected>03</option>
+                            <option value="06" >06</option>
+                            <option value="09">09</option>
+                            </select>
+                        <select ng-model="moviemappingCtrl.mmrec.min">
+
+                             <option value="10" selected>10</option>
+                              <option value="20" selected>20</option>
+                               <option value="40" selected>40</option>
+                            </select>
+                        <select ng-model="moviemappingCtrl.mmrec.ampm">
+                            <option value="am" selected>AM</option>
+                                    <option value="pm" >PM</option>
+                        </select>
+
+                        <button class="btn btn-success" ng-click="moviemappingCtrl.pushTime()">ADD</button>
+                    </td>
+                </tr>
+                <!--<tr>
+                    <td colspan=2>
+                        {{moviemappingCtrl.mmrec.hr + ':' + moviemappingCtrl.mmrec.min + ' ' + moviemappingCtrl.mmrec.ampm;}} {{moviemappingCtrl.mmrec.time}}
+                    </td>
+                </tr>
+                <tr>-->
+                <td>
+                    <h4> Schedule Date:</h4>
+                </td>
+                <td>
+                    <input type="date" class="form-control" ng-model="moviemappingCtrl.mmrec.sdate">
+
+                    <button class="btn btn-success" ng-click="moviemappingCtrl.pushDate()">ADD</button>
+                </td>
+                </tr>
+                <!--<tr>
+                    <td colspan=2>
+                        {{moviemappingCtrl.mmrec.date +''}} {{moviemappingCtrl.mmrec.date}}
+
+                </tr>
+                <tr>-->
+
+                <td> <button class="btn btn-danger" ng-click="moviemappingCtrl.Addmoivemapping()">SUBMIT</button></td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-md-6">
+            <!--<pre>{{moviemappingCtrl.mmrec.movieObj}}</pre>-->
+            <!--<img ng-src="moviemappingCtrl.allMoviesData.Poster  moviemappingCtrl.mmrec.movieObj.Poster" />-->
+            <img ng-src="{{moviemappingCtrl.mmrec.movieObj.Poster}}" height="80%" />
+        </div>
+    </div>
+</div>
