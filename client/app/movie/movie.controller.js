@@ -15,7 +15,7 @@
     }
 
     AddMovies() {
-      alert("hogyaa");
+      alert("Successfully Done");
       this.$http.post('/api/movies',
         // {
         //   Title: this.movieData.Title,

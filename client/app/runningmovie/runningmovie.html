@@ -31,7 +31,7 @@
             </ul>
         </div>
         <div class="col-md-3">
-            <div class="row" ng-repeat="r in runningmovieCtrl.selectedmapping track by $index | filter: runningmovieCtrl.selectedmovie.Title">
+            <div class="row" ng-repeat="r in runningmovieCtrl.selectedmapping  | filter: runningmovieCtrl.selectedmovie.Title">
                 <!--<pre>{{r}}</pre>-->
                 <!--<span class="btn btn-danger">{{r.date.join(', ')}}</span>
                 <span class="btn btn-info">{{r.time.join(', ')}}</span>-->

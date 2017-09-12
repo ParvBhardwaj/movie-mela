@@ -12,4 +12,8 @@ router.put('/:id', controller.update);
 router.patch('/:id', controller.update);
 router.delete('/:id', controller.destroy);
 
+// GET date/ time/ theater/ movie/
+router.get('/booked/:date/:time/:cine/:movie', controller.show2);
+
+
 module.exports = router;

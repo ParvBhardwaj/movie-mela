@@ -14,7 +14,7 @@ import Movie from './movie.model';
 
 function respondWithResult(res, statusCode) {
   statusCode = statusCode || 200;
-  return function(entity) {
+  return function (entity) {
     if (entity) {
       res.status(statusCode).json(entity);
     }
@@ -22,8 +22,10 @@ function respondWithResult(res, statusCode) {
 }
 
 function saveUpdates(updates) {
-  return function(entity) {
+  return function (entity) {
     var updated = _.merge(entity, updates);
+    //changed
+    // var updated = _.extend(entity, updates);
     return updated.save()
       .then(updated => {
         return updated;
@@ -32,7 +34,7 @@ function saveUpdates(updates) {
 }
 
 function removeEntity(res) {
-  return function(entity) {
+  return function (entity) {
     if (entity) {
       return entity.remove()
         .then(() => {
@@ -43,7 +45,7 @@ function removeEntity(res) {
 }
 
 function handleEntityNotFound(res) {
-  return function(entity) {
+  return function (entity) {
     if (!entity) {
       res.status(404).end();
       return null;
@@ -54,7 +56,7 @@ function handleEntityNotFound(res) {
 
 function handleError(res, statusCode) {
   statusCode = statusCode || 500;
-  return function(err) {
+  return function (err) {
     res.status(statusCode).send(err);
   };
 }
@@ -73,6 +75,15 @@ export function show(req, res) {
     .then(respondWithResult(res))
     .catch(handleError(res));
 }
+
+// Gets a single Movie from the DB
+export function showimdbID(req, res) {
+  return Movie.findOne({ imdbID: req.params.id }).exec()
+    .then(handleEntityNotFound(res))
+    .then(respondWithResult(res))
+    .catch(handleError(res));
+}
+
 
 // Creates a new Movie in the DB
 export function create(req, res) {

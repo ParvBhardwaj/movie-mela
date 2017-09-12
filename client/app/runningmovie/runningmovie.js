@@ -3,7 +3,7 @@
 angular.module('movieMelaApp')
   .config(function ($routeProvider) {
     $routeProvider
-      .when('/runningmovie', {
+      .when('/runningmovie/:imdbID', {
         template: '<runningmovie></runningmovie>'
       });
   });
