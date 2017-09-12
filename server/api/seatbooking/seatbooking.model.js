@@ -3,9 +3,12 @@
 import mongoose from 'mongoose';
 
 var SeatbookingSchema = new mongoose.Schema({
-  name: String,
-  info: String,
-  active: Boolean
+  movie: String,
+  city: String,
+  cine: String,
+  date: String,
+  time: String,
+  selectedSeats: [String]
 });
 
 export default mongoose.model('Seatbooking', SeatbookingSchema);

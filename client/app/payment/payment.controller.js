@@ -10,6 +10,9 @@
       this.bookdt = $rootScope.book2pay;
       this.run2book = $rootScope.run2book;
 
+      console.log(this.bookdt);
+      console.log(this.run2book);
+
       //angular.merge(this.book2pay, $rootScope.book2pay);
 
       this.payData = {};
@@ -22,17 +25,17 @@
 
 
     payNow() {
-      alert("Successfull Your Payment has done");
       this.payData.total = this.bookdt.total;
-
+      debugger;
       this.$http.post('/api/payments',
         angular.toJson(this.payData)
       );
 
-      this.$http.post('/api/seatbookings ',
+      this.$http.post('/api/seatbookings',
         angular.toJson(this.bookdt)
       );
 
+      alert("Successfull Your Payment has done");
     }
 
   }//end class PaymentComponent

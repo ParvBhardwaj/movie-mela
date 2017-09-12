@@ -3,9 +3,11 @@
 import mongoose from 'mongoose';
 
 var MoviemappingSchema = new mongoose.Schema({
-  name: String,
-  info: String,
-  active: Boolean
+  movie: String,
+  city: String,
+  cine: String,
+  time: [String],
+  date: [String]
 });
 
 export default mongoose.model('Moviemapping', MoviemappingSchema);

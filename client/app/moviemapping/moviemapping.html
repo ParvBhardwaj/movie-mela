@@ -20,11 +20,12 @@
                 <tr>
                     <td>
                         <h4>City Name:</h4>
+                        <p>{{alltheaterData}}</p>
                     </td>
                     <td>
                         <select ng-model="moviemappingCtrl.mmrec.city">
                             <option value="">Select City</option>
-                            <option  ng-repeat="c in moviemappingCtrl.alltheaterData | unique:'City' "  value="{{c.City}}">
+                            <option  ng-repeat="c in moviemappingCtrl.alltheaterData | unique: 'City' "  value="{{c.City}}">
                                 {{c.City}}
                             </option>
                         </select>

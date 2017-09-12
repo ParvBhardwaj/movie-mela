@@ -23,6 +23,11 @@ function respondWithResult(res, statusCode) {
 
 //'/booked/:date/:time/:cine/:movie'
 export function show2(req, res) {
+  console.log(req.params.date);
+  console.log(req.params.time);
+  console.log(req.params.cine);
+  console.log(req.params.movie);
+
   return Seatbooking.findOne({
     'date': req.params.date,
     'time': req.params.time,
@@ -90,6 +95,10 @@ export function show(req, res) {
 
 // Creates a new Seatbooking in the DB
 export function create(req, res) {
+
+  console.log("creating seatbooking");
+  console.log(req.body);
+  
   return Seatbooking.create(req.body)
     .then(respondWithResult(res, 201))
     .catch(handleError(res));
